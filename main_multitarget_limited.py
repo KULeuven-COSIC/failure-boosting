@@ -13,7 +13,6 @@ plt.rcParams.update({'font.size': 14}) # for small paper figures
 plt.rcParams.update({'font.size': 12})
 
 from NISTschemes import LightSaber, Saber, FireSaber, Kyber512, Kyber768, Kyber1024, uLightSaber, uSaber, uFireSaber 
-from NISTschemes import LightSaberTplus1, SaberTplus1, SaberTplus2, FireSaberTplus1, FireSaberTplus2, FireSaberTplus3
 
 def multitarget_limited(scheme, maxqueries, targets, simpleMultitarget=True, limitct = float('inf'), maxdepth = float('inf'), recalc=False, addFail3=False, method='geometric-uneven', legendloc = 'upper left', outname = ''):
     ###############################
@@ -145,18 +144,10 @@ def main():
     uSaber['AES'] = 2**192
     uFireSaber['AES'] = 2**256
 
-    SaberTplus1['AES'] = 2**192
-    SaberTplus2['AES'] = 2**192
-    FireSaberTplus1['AES'] = 2**256
-    FireSaberTplus2['AES'] = 2**256
-    FireSaberTplus3['AES'] = 2**256
-
     Schemes = []
     Schemes = Schemes + [LightSaber, Saber, FireSaber]
     Schemes = Schemes + [Kyber512, Kyber768, Kyber1024]
-    Schemes = Schemes + [SaberTplus1, SaberTplus2, FireSaberTplus1, FireSaberTplus2, FireSaberTplus3]
-
-    Schemes= [Saber]
+    # Schemes = Schemes + [uLightSaber, uSaber, uFireSaber]
 
     method = 'geometric-uneven'
     maxqueries = 2**64
